@@ -57,6 +57,10 @@ section.table div.data div.col span {
     padding: 5px;
 }
 
+section.table div.data div.col span:hover ~ * {
+    background-color: antiquewhite;
+}
+
 section.table div.data div.col span:nth-child(odd) {
     background-color: #0472d3;
     color: #fff;
