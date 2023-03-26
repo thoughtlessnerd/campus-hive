@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/index.css" />
+  <link rel="stylesheet" href="/popup.css" />
+  <title>College Hive</title>
+</head>
+
+<body>
+  <div class="backdrop hidden"></div>
+  <nav class="topBar">
+    <span class="collegeSelect">
+      <label for="college">Choose your college:</label>
+      <select id="college">
+        <option>BPIT</option>
+      </select>
+    </span>
+    <span class="categorySelect">
+      <label for="category">Choose the category:</label>
+      <select id="category">
+        <option>All</option>
+        <option>Notes</option>
+        <option>Events</option>
+        <option>Announcements</option>
+        <option>Schedules</option>
+      </select>
+    </span>
+    <span class="search">
+      <input type="search" name="searchBar" id="searchBar" placeholder="search..." />
+    </span>
+  </nav>
+
+
+  <section class="Events table">
+    <div class="header">
+      <span>S no.</span>
+      <span>Name</span>
+      <span>Date & Time</span>
+      <span>Description</span>
+    </div>
+    <div class="data">
+      <% eventsSno = events.map( elem => "<span>" + elem.sno + "</span>")-%>
+      <% eventsName = events.map( elem => "<span>" + elem.name + "</span>")-%>
+      <% eventsDate = events.map( elem => "<span>" + elem.date + "</span>")-%>
+      <% eventsDesc = events.map( elem => "<span>" + elem.description + "</span>")-%>
+      <div class="sno col"><%- eventsSno.join("\n") %></div>
+      <div class="name col"><%- eventsName.join("\n") %></div>
+      <div class="date col"><%- eventsDate.join("\n") %></div>
+      <div class="desc col"><%- eventsDesc.join("\n") %></div>
+    </div>
+  </section>
+
+
+  <section class="Notes table">
+    <div class="header">
+      <span>S no.</span>
+      <span>Name</span>
+      <span>Semester</span>
+      <span>provided by</span>
+    </div>
+    <div class="data">
+      <% notesSno = notes.map( elem => "<span>" + elem.sno + "</span>")-%>
+      <% notesName = notes.map( elem => "<span>" + elem.name + "</span>")-%>
+      <% notesSem = notes.map( elem => "<span>" + elem.semester + "</span>")-%>
+      <% notesBy = notes.map( elem => "<span>" + elem.by.trim() + "</span>")-%>
+      <% notesDesc = notes.map( elem => "<span>" + elem.description.trim() + "</span>")-%>
+      <div class="sno col">
+      <%- notesSno.join("\n") %>
+      </div>
+      <div class="name col">
+      <%- notesName.join("\n") %>
+      </div>
+      <div class="sem col">
+      <%- notesSem.join("\n") %>
+      </div>
+      <div class="by col">
+        <%- notesBy.join("\n") %>
+      </div>
+      <div class="desc col hidden">
+        <%- notesDesc.join("\n") %>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="Announcements table">
+    <div class="header">
+      <span>S no.</span>
+      <span>Announcement</span>
+      <span>Date</span>
+      <span>Announced by</span>
+    </div>
+    <div class="data">
+      <div class="sno col">
+        <span>1</span>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="Schedules table">
+    <div class="header">
+      <span>S no.</span>
+      <span>Schedule</span>
+      <span>Date & time</span>
+      <span>from</span>
+    </div>
+    <div class="data">
+      <div class="col">
+        <span>1</span>
+      </div>
+    </div>
+  </section>
+</body>
+<script src="/UI.js"></script>
+</html>
