@@ -26,7 +26,6 @@
         <option>Notes</option>
         <option>Events</option>
         <option>Announcements</option>
-        <option>Schedules</option>
       </select>
     </span>
     <span class="search">
@@ -95,23 +94,21 @@
       <span>Announced by</span>
     </div>
     <div class="data">
+      <% announcementSno = announcements.map( elem => "<span>" + elem.sno + "</span>")-%>
+      <% announcementDesc = announcements.map( elem => "<span>" + elem.announcement + "</span>")-%>
+      <% announcementDate = announcements.map( elem => "<span>" + elem.date + "</span>")-%>
+      <% announcementBy = announcements.map( elem => "<span>" + "IPU" + "</span>")-%>
       <div class="sno col">
-        <span>1</span>
+      <%- announcementSno.join("\n") %>
       </div>
-    </div>
-  </section>
-
-
-  <section class="Schedules table">
-    <div class="header">
-      <span>S no.</span>
-      <span>Schedule</span>
-      <span>Date & time</span>
-      <span>from</span>
-    </div>
-    <div class="data">
-      <div class="col">
-        <span>1</span>
+      <div class="desc col">
+      <%- announcementDesc.join("\n") %>
+      </div>
+      <div class="date col">
+      <%- announcementDate.join("\n") %>
+      </div>
+      <div class="by col">
+        <%- announcementBy.join("\n") %>
       </div>
     </div>
   </section>

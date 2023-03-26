@@ -16,6 +16,11 @@ box-shadow: 5px 5px 5px #2BA84A,
   padding: 50px;
 }
 
+div.popup img
+{
+  width: 400px;
+}
+
 div.backdrop
 {
   width: 100%;

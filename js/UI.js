@@ -71,6 +71,7 @@ function handleSearch(e)
 
 makeDataInteractive(notesDataTags)
 makeDataInteractive(eventsDataTags)
+makeDataInteractive(announcementsDataTags)
 
 selectCategory.addEventListener("change", refreshCategoryVisibility);
 
@@ -99,6 +100,7 @@ backDrop.addEventListener("click", () => {
 
 function createPopup(data, type)
 {
+  console.log(type)
   backDrop.classList.remove("hidden");
   const popup = document.createElement("div");
   popup.classList.add("popup");
@@ -128,6 +130,26 @@ function createPopup(data, type)
     const p = document.createElement("p");
     p.innerHTML = data["desc"];
     popup.appendChild(p);
+  }
+  else if(type == "Announcements")
+  {
+    const h1 = document.createElement("h1");
+    h1.innerHTML = data["date"];
+    popup.appendChild(h1);
+    if(data["desc"].trim().indexOf("https://") === 0)
+    {
+      const img = document.createElement("img");
+      img.src = data["desc"];
+      popup.appendChild(img);
+    }
+    else {
+      const p = document.createElement("p");
+      p.innerHTML = data["desc"];
+      popup.appendChild(p);
+    }
+    const pre = document.createElement("pre");
+    pre.innerHTML = data["by"];
+    popup.appendChild(pre);
   }
   document.body.appendChild(popup);
   currPopup = popup;
